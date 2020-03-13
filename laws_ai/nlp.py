@@ -1,3 +1,4 @@
+# Não foi usado ainda
 import nltk
 from string import punctuation
 import re
@@ -24,4 +25,3 @@ def text_paragraphs(text):
     text = [palavra for palavra in text.split() if palavra not in stop_words]
     text = " ".join(text)
     return text
- 

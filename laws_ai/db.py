@@ -7,14 +7,11 @@ client = MongoClient(
     "mongodb://localhost:27017/laws?readPreference=primary&appname=MongoDB%20Compass&ssl=false")
 db = client.laws_ai
 
-####################################################
-
 
 def last_unread_link():
     return db.links.find(
         {'visited_count': 0, "url": {"$regex": ".*Lei.*"}}
     ).sort("law_code")[0]
-    # return db.links.find_one({'visited_count': 0, "url" : {"$regex" : ".*Lei.*"}})
 
 
 def base():
@@ -22,17 +19,10 @@ def base():
 
 
 def unread_links(limit):
-    return db.links.aggregate([ 
-        { "$match": {'visited_count': 0, "url": {"$regex": ".*Lei.*"}}},
-        { "$sample": { "size": limit } }
+    return db.links.aggregate([
+        {"$match": {'visited_count': 0, "url": {"$regex": ".*Lei.*"}}},
+        {"$sample": {"size": limit}}
     ])
-
-    # return db.links.find(
-    #     {'visited_count': 0, "url": {"$regex": ".*Lei.*"}}
-    # ).sort("law_code").limit(limit)
-
- 
-
 
 
 # populatedata_table
@@ -54,20 +44,25 @@ def add_date(date):
         result = db.dates.insert_one(date)
         return result.inserted_id
 
+
 def add_published_fact(published_fact):
     exist = db.published_laws.find_one(published_fact)
     if not exist:
         db.published_laws.insert_one(published_fact)
 
+
 def add_tables(tables):
     exist = db.tables.find_one(tables)
     if not exist:
-        db.tables.insert_one(tables)
+        result = db.tables.insert_one(tables) 
+        return result.inserted_id
+
 
 def add_current_fact(current_fact):
     exist = db.published_laws.find_one(current_fact)
     if not exist:
         db.published_laws.insert_one(current_fact)
+
 
 def add_text(text):
     exist = db.texts.find_one(text)
@@ -116,9 +111,9 @@ def add_link(link, law_code, visited_count=0, visited_at=None, time_used=None):
         result = db.links.insert_one(data_link)
         return result.inserted_id
 
-
-###############################
 # Helpers
+
+
 def link_to_law_code(link):
     link_arr = link.split("/")[-1]
     if link_arr:
@@ -144,11 +139,13 @@ def link_by_law_code(law_code):
 
 
 def reset_links():
-    db.links.update_many({}, {"$set": {"visited_at": "", "visited_count": 0, "error": ''}})
+    db.links.update_many(
+        {}, {"$set": {"visited_at": "", "visited_count": 0, "error": ''}})
     db.laws.drop()
     db.published_laws.drop()
     db.texts.drop()
     db.dates.drop()
+
 
 def reset_reads():
     db.laws.drop()

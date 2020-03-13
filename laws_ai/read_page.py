@@ -2,8 +2,6 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import urllib.request
-
-# laws_ai libs
 import laws_ai.db as db
 
 
@@ -35,6 +33,7 @@ def open_url(url, one_time=True):
     data = BeautifulSoup(resp.read(), "html.parser")
 
     return True, data, url
+
 
 def open_htm_file(path):
     return BeautifulSoup(open(path, 'r'), "html.parser")

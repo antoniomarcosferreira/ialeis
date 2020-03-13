@@ -1,10 +1,10 @@
+# This script is used to reset processes
 import laws_ai.db as db
 import sys
 
 
 ##########################
 if __name__ == "__main__":
-
 
     # clear_lins = [ 
     #     'http://www.planalto.gov.br/CCIVIL_03/Decreto-Lei/1965-1988/Del0456.htm',

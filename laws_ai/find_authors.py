@@ -1,7 +1,6 @@
 import re
 from unicodedata import normalize
 
-
 def authors(text):
     text = text.replace("Presidente da República", "")
     text = normalize('NFKD', text).encode(

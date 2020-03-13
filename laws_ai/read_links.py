@@ -2,6 +2,7 @@ import laws_ai.read_page as read_page
 import laws_ai.helpers as helpers
 import re
 
+
 def extract(data, url, condIn=''):
     # Separate links
     url_base = url.replace("http://", "")

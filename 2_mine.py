@@ -4,13 +4,12 @@
 import laws_ai.mine as mine
 import laws_ai.db as db
 import sys
-import time 
-import glob, os
+import time
+import glob
+import os
 import laws_ai.read_page as read_page
 
 
-
-##########################
 if __name__ == "__main__":
     path = os.path.dirname(os.path.abspath(__file__))
     limit = 1000
@@ -33,11 +32,10 @@ if __name__ == "__main__":
             except Exception as e:
                 print(count, "Erro ->", file)
                 law_path_error = path + "/laws/errors/" + file
-                os.rename(law_path, law_path_error)  
+                os.rename(law_path, law_path_error)
 
-            count  += 1
+            count += 1
             if count >= limit:
                 break
 
     mine_pages()
-  

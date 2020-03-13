@@ -22,12 +22,12 @@ def find(url_base):
 
         time.sleep(0.5)
 
-    print("__FIM__")
+    print("__END__")
 
 
-##########################
 if __name__ == "__main__":
 
+    # Apenas decretos e leis ordinárias.
     base_urls = [
         "http://www.planalto.gov.br/CCIVIL_03/decreto/_Dec_ano.htm",
         "http://www.planalto.gov.br/ccivil_03/LEIS/_Lei-Ordinaria.htm"

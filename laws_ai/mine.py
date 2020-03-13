@@ -26,6 +26,7 @@ class Mine:
         link = db.link_by_law_code(law_code)
         self.current_link_id = link["_id"]
         self.current_text_id = ''
+        self.current_table_id = ''
 
         self.preamble = ""
         self.description = ""
@@ -201,7 +202,8 @@ class Mine:
                     'law': self.current_law_id,
                     'link': self.current_link_id,
                     'text': current_text_id,
-                    'date': self.current_published_at
+                    'date': self.current_published_at,
+                    'table': self.current_table_id
                 }
                 db.add_published_fact(fact)
 
@@ -243,16 +245,7 @@ class Mine:
 
         if len(self.description) < 20 or len(self.description) > 500:
             raise 'Erro na identificação do descrição'
-
-        # Add item form Fact
-        if save and len(all_tables) > 0:
-            data_table = {
-                'law': self.current_law_id,
-                'law_code': self.law_code,
-                'tables': all_tables
-            }
-            db.add_tables(data_table)
-
+       
         text = text.replace("\xa0", " ")
         text = text.replace("\n\n\n", "|")
         text = text.replace("\n\n", "|")
@@ -298,8 +291,13 @@ class Mine:
         if save:
             self.current_published_at = db.add_date(law_date)
             self.current_law_id = db.add_law(law)
+            if len(all_tables) > 0:
+                data_table = {
+                    'law_code': self.law_code,
+                    'tables': all_tables
+                }
+                self.current_table_id = db.add_tables(data_table)
 
-        # Read items
         self.law_texts(items, save)
 
         return law

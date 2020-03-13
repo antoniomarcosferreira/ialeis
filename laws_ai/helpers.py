@@ -23,6 +23,7 @@ def apply_path_url(path, url):
     new_path = "http://" + new_path + "/" + url_arr[-1]
     return new_path
 
-def clean_list(items): 
+
+def clean_list(items):
     items = list(filter(None, items))
     return list(dict.fromkeys(items))
