@@ -214,6 +214,9 @@ class Mine:
 
         data = read_page.open_htm_file(self.path)
 
+        for strike in data.findAll("strike"):
+            strike.extract()
+
         law_type, self.published_at, scope = self.law_type_date_scope(
             data.text)
 

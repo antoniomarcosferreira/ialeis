@@ -23,4 +23,4 @@ if __name__ == "__main__":
             print(count, res, link["url"])
             time.sleep(0.5)
 
-    getLinks()
+    getLinks() 

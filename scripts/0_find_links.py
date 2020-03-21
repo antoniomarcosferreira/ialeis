@@ -31,6 +31,7 @@ if __name__ == "__main__":
     base_urls = [
         "http://www.planalto.gov.br/CCIVIL_03/decreto/_Dec_ano.htm",
         "http://www.planalto.gov.br/ccivil_03/LEIS/_Lei-Ordinaria.htm"
+        "http://www.planalto.gov.br/ccivil_03/LEIS/LCP/Quadro_Lcp.htm"
     ]
 
     for i in base_urls:

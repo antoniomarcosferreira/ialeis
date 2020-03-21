@@ -9,10 +9,17 @@ http://www.planalto.gov.br/ccivil_03/Portaria/P1492-11-ccivil.htm
 Conteúdo extraído do Portal da Legislação da Presidência da República 
 a partir de 01/03/2020, de caráter meramente informativo, não oficial.
 
-# Esperimento realizado apenas com Decretos e Leis Ordinárias.
+## Esperimento realizado apenas com Decretos, Leis Ordinárias e Leis Complementares.
 
 Stack
 - Python3
 - MongoDB
 - Jupyter Notebook
 - Knime
+
+## Para usar.
+Execute os scripts na ordem:
+
+  -  ./scripts/0_find_links.py
+  -  ./scripts/1_download.py
+  -  ./scripts/2_mine.py
