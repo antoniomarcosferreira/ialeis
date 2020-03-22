@@ -1,6 +1,6 @@
-# ialeis
+# IA Leis
 
-IA Leis - Aplicação para converter textos legais em um data warehouse
+Aplicação para converter textos legais em um data warehouse
 
 Este projeto estrai inforações do site do governo para fins de analise e estudo.
 
@@ -12,7 +12,7 @@ a partir de 01/03/2020, de caráter meramente informativo, não oficial.
 
 ---
 
-IA Laws - Application to convert legal texts into a data warehouse
+Application to convert legal texts into a data warehouse
 
 This project extracts information from the government website for purposes of analysis and study.
 
@@ -46,3 +46,5 @@ Run the scripts in order:
 License: MIT -[![Licença Creative Commons](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-sa/4.0/)  
 
 This work is licensed under a [Creative Commons - Attribution-ShareAlike 4.0  International] License (http://creativecommons.org/licenses/by-sa/4.0/).
+
+Started at Mar 13, 2020
