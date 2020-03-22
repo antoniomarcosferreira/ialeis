@@ -27,10 +27,12 @@ as of 01/03/2020, for information purposes only, unofficial.
 Stack
 - Python3
 - MongoDB
+
+To test data
 - Jupyter Notebook
 - Knime
 
-## To use.
+## How to use.
 Run the scripts in order:
 
   - ./scripts/0_crawling.py
@@ -42,6 +44,11 @@ Run the scripts in order:
   - IA para reconhecimento de leis fiscais - PPT.pptx
 
 ---
+## Contributing 
+
+We encourage you to contribute to IA Leis! 
+Join us!
+
 
 License: MIT -[![Licença Creative Commons](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-sa/4.0/)  
 
